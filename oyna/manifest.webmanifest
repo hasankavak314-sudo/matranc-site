@@ -1,0 +1,84 @@
+{
+  "name": "MATRANÇ",
+  "short_name": "MATRANÇ",
+  "id": "com.matranc.oyun",
+  "description": "Çarpım tablosunu strateji ile öğreten, maç sonlarında değerler üzerine düşündüren zekâ oyunu.",
+  "orientation": "portrait",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "black",
+  "categories": ["games", "entertainment"],
+  "icons": [{
+        "src": "7eff978595b28eff118e5b602a03c1ad62da5030e0ed871124f990b1d0cb7fa7-ios-icon-20.png.png",
+        "sizes": "20x20"
+      },{
+        "src": "11f07bc73b7ca122c842b20a816bc7f39905eacbea35ae3bfdbf6d03bb393c58-ios-icon-29.png.png",
+        "sizes": "29x29"
+      },{
+        "src": "be461d0a9c7acc0673da1905178d67d40843e41407d7d02c04e3b1720a5403f2-android-icon-36.png.png",
+        "sizes": "36x36"
+      },{
+        "src": "218018a0d1d6de806f36326a4de0facd0db36ddcae7762e98203d507dad6fefd-ios-icon-40.png.png",
+        "sizes": "40x40"
+      },{
+        "src": "89e6139436785ce664097cae688a561594764460154d95edca81b9b74e552753-android-icon-48.png.png",
+        "sizes": "48x48"
+      },{
+        "src": "eda0b3aa8a5d042698928683313e334ce6358da96618a0cdefb1bd53509322f9-ios-icon-50.png.png",
+        "sizes": "50x50"
+      },{
+        "src": "e5454bff794e38a1ea02dc7a40db6c5b4dd893352a8897f50f2ef240f052380f-ios-icon-57.png.png",
+        "sizes": "57x57"
+      },{
+        "src": "1e4e0ca4e0566253738625fd2a03ba7a90906226657f6b51edc82bbec7e18ad1-ios-icon-58.png.png",
+        "sizes": "58x58"
+      },{
+        "src": "993b055d793b7684873b73b4b2861bf49c4de090dc050ce06201e27395dd71f1-ios-icon-60.png.png",
+        "sizes": "60x60"
+      },{
+        "src": "f57fd14b9399e61c2c31656e3a3392fe4a69e055d05a2746bd0056ea6e225e03-android-icon-72.png.png",
+        "sizes": "72x72"
+      },{
+        "src": "a43a5c62c38dbece23a692f0a0db07fa4d0972a3d1413b6419b560f97af85d81-ios-icon-76.png.png",
+        "sizes": "76x76"
+      },{
+        "src": "2c19df8bc277744d5a175a1ce9a86c3035cfaa0785904f39731e628299dce8e3-ios-icon-80.png.png",
+        "sizes": "80x80"
+      },{
+        "src": "67ca890c47b2e4d73b6d6e95722f93d0fbd31849062e24598a04159626de82bc-ios-icon-87.png.png",
+        "sizes": "87x87"
+      },{
+        "src": "896348e4865c913705187971ef0e007d36bc010c56021626a39f7ab23e6d4769-android-icon-96.png.png",
+        "sizes": "96x96"
+      },{
+        "src": "c4f537f05d91d0c44985c5774bbb366a54556171a16eaa433a225d8abd813f15-ios-icon-100.png.png",
+        "sizes": "100x100"
+      },{
+        "src": "43587a7ef3db99fdd6a403e92fb05780c84bcec043ca1d36a06f42654597fc25-ios-icon-114.png.png",
+        "sizes": "114x114"
+      },{
+        "src": "1e1813b1ebc83245f650138be79f0103fbfdb4887c8e11b124ca7a4f0badb565-ios-icon-120.png.png",
+        "sizes": "120x120"
+      },{
+        "src": "b0dd2ef1aada6c1c5d9bef86236c1c333e50a13f7c2c3895b5308df633568840-android-icon-144.png.png",
+        "sizes": "144x144"
+      },{
+        "src": "b35b9c4e55151db615ce199346a7e51a83d9f2630cb3c899331aca9b361ddd45-ios-icon-152.png.png",
+        "sizes": "152x152"
+      },{
+        "src": "c90aadd4cc7353db84f3f9f1b7c12b8ae3a9571fef2641bf6865ae6680f1d3ed-ios-icon-167.png.png",
+        "sizes": "167x167"
+      },{
+        "src": "c37903128ec99716bc53193a6d1fb05e7332495f6915f361bd407c50e96ef777-ios-icon-180.png.png",
+        "sizes": "180x180"
+      },{
+        "src": "7cb2374758855fb48051133a476e662fbd807ddc3e0a63fb81680dcec69078d0-android-icon-192.png.png",
+        "sizes": "192x192"
+      },{
+        "src": "7d4e2964c9aadaf9ac04e9f799059c2b6f3bb914edb2e4c867a03f87860f8001-desktop-icon-512.png.png",
+        "sizes": "512x512"
+      },{
+        "src": "7e9ae992c8ec160d7453b4ead7cf4add0deb9bd5fe1a9e2d1b3afad6b84e2ea1-ios-icon-1024.png.png",
+        "sizes": "1024x1024"
+      }]
+}
