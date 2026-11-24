@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MATRANÇ tahta ölçümü</title>
+<style>
+  html,body{margin:0;height:100%;background:#000;overflow:hidden;font-family:Arial,sans-serif}
+  iframe{position:fixed;inset:0;width:100%;height:100%;border:0}
+  #p{position:fixed;left:10px;top:10px;z-index:9;background:rgba(0,0,0,.78);color:#fff;border-radius:12px;padding:10px 14px;font-size:20px;line-height:1.45;min-width:260px}
+  #p b{font-size:34px;color:#7CFC7C}
+  #p button{display:block;width:100%;margin-top:8px;font-size:18px;padding:10px;border-radius:10px;border:0;background:#ffd23a;font-weight:bold}
+  #p small{color:#bbb;font-size:15px}
+</style>
+</head>
+<body>
+<iframe id="o" src="index.html"></iframe>
+<div id="p">
+  <div>Kare/sn: <b id="fps">–</b></div>
+  <div><small>en düşük (son 5 sn): <span id="min">–</span></small></div>
+  <div><small>Ekran: <span id="ek">–</span></small></div>
+  <div><small>Oyun tuvali: <span id="tv">–</span></small></div>
+  <div><small>Yükleme süresi: <span id="yk">–</span></small></div>
+  <button id="b1">Bulanık arka plan: AÇIK</button>
+  <button id="b2">Çözünürlük: TAM</button>
+  <button id="b3" style="background:#ddd">Paneli gizle</button>
+</div>
+<script>
+(function () {
+  const $ = (i) => document.getElementById(i), fr = $("o"), t0 = performance.now();
+  let kareler = [], yuklendi = false;
+  // kare sayısı oyunun kendi penceresinde ölçülür
+  function olc() {
+    const w = fr.contentWindow;
+    if (!w) return setTimeout(olc, 300);
+    const dongu = (t) => {
+      kareler.push(t);
+      while (kareler.length && t - kareler[0] > 5000) kareler.shift();
+      w.requestAnimationFrame(dongu);
+    };
+    w.requestAnimationFrame(dongu);
+  }
+  fr.addEventListener("load", olc);
+  setInterval(() => {
+    const n = kareler.length;
+    if (n > 1) {
+      const son = kareler[n - 1];
+      const bir = kareler.filter((t) => son - t <= 1000).length;
+      $("fps").textContent = bir;
+      let enUzun = 0; for (let i = 1; i < n; i++) enUzun = Math.max(enUzun, kareler[i] - kareler[i - 1]);
+      $("min").textContent = enUzun ? Math.round(1000 / enUzun) + " (en uzun bekleme " + Math.round(enUzun) + " ms)" : "–";
+    }
+    $("ek").textContent = screen.width + "×" + screen.height + " · yoğunluk " + (window.devicePixelRatio || 1);
+    try {
+      const d = fr.contentDocument, c = d && d.querySelector("canvas");
+      if (c) {
+        $("tv").textContent = c.width + "×" + c.height + " çizim / " + Math.round(c.clientWidth) + "×" + Math.round(c.clientHeight) + " görünen";
+        if (!yuklendi && fr.contentWindow.MatrancTanitim) { yuklendi = true; $("yk").textContent = ((performance.now() - t0) / 1000).toFixed(1) + " sn"; }
+      }
+    } catch (e) {}
+  }, 500);
+  // bulanık arka plan aç/kapat
+  let bulanik = true;
+  $("b1").onclick = () => {
+    try {
+      const z = fr.contentDocument.getElementById("mtrTahtaZemin");
+      bulanik = !bulanik;
+      if (z) z.style.display = bulanik ? "" : "none";
+      $("b1").textContent = "Bulanık arka plan: " + (bulanik ? "AÇIK" : "KAPALI");
+    } catch (e) { $("b1").textContent = "hata: " + e.message; }
+  };
+  // çözünürlük yarıya
+  let yarim = false;
+  $("b2").onclick = () => {
+    try {
+      const T = fr.contentWindow.MatrancTanitim, r = T.sahne.getGame().getRenderer().getPIXIRenderer();
+      const c = r.view, sw = c.style.width, sh = c.style.height;
+      yarim = !yarim; r.resolution = yarim ? 0.5 : 1;
+      r.resize(r.screen.width, r.screen.height);
+      c.style.width = sw; c.style.height = sh;
+      $("b2").textContent = "Çözünürlük: " + (yarim ? "YARIM" : "TAM");
+    } catch (e) { $("b2").textContent = "hata: " + e.message; }
+  };
+  $("b3").onclick = () => { $("p").style.display = "none"; setTimeout(() => { $("p").style.display = ""; }, 15000); };
+})();
+</script>
+</body>
+</html>
